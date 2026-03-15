@@ -4,18 +4,11 @@
 <title>Vishnu | Portfolio</title>
 <link rel="stylesheet" href="style.css">
 </head>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
-<script>
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 80 },
-    color: { value: "#00ffff" },
-    shape: { type: "circle" },
-    opacity: { value: 0.5 },
-    size: { value: 3 },
-    move: { speed: 2 }
-  }
+ <script>
+document.getElementById("queryForm").addEventListener("submit", function(e){
+e.preventDefault();
+document.getElementById("message").innerText =
+"Your query has been submitted!";
 });
 </script>
 
@@ -65,6 +58,22 @@ particlesJS("particles-js", {
 <h2>Contact</h2>
 <p>Email: vishnurajn4188@gmail.com</p>
   <p>Ph No:9037187614</p>
+</section>
+  <section id="query">
+<h2>Ask Me a Question</h2>
+
+<form id="queryForm">
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Your Email" required>
+
+<textarea placeholder="Type your query here..." required></textarea>
+
+<button type="submit">Send Query</button>
+</form>
+
+<p id="message"></p>
+
 </section>
 
 <footer>
