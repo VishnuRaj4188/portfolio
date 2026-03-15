@@ -69,6 +69,18 @@ border-radius:15px;
 transition: transform 0.4s;
 transform-style:preserve-3d;
 }
+h1,h2{
+text-shadow:0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+nav a{
+color:#00ffff;
+transition:0.3s;
+}
+
+nav a:hover{
+text-shadow:0 0 15px cyan;
+}
 
 .card:hover{
 transform: rotateY(15deg) rotateX(10deg) scale(1.1);
