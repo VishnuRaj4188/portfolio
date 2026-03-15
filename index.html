@@ -4,11 +4,33 @@
 <head>
 <title>Vishnu | Portfolio</title>
 <link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
+
 </head>
 
 <body>
 
 <div id="particles-js"></div>
+
+<!-- Floating Tech Icons -->
+
+<div class="tech-background">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="tech-icon">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="tech-icon">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="tech-icon">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="tech-icon">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="tech-icon">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="tech-icon">
+
+</div>
 
 <header>
 <h1>VishnuRaj</h1>
@@ -22,16 +44,13 @@
 <a href="#contact">Contact</a>
 </nav>
 
-<!-- ABOUT -->
-
 <section id="about">
 <h2>About Me</h2>
 <p>I am a Computer Engineering student passionate about cloud computing, AI and data analysis.</p>
 </section>
 
-<!-- SKILLS -->
-
 <section id="skills">
+
 <h2>Skills</h2>
 
 <div class="card">HTML</div>
@@ -48,9 +67,8 @@
 
 </section>
 
-<!-- PROJECTS -->
-
 <section id="projects">
+
 <h2>Projects</h2>
 
 <div class="project">
@@ -60,24 +78,26 @@
 
 </section>
 
-<!-- CONTACT -->
-
 <section id="contact">
 <h2>Contact</h2>
 <p>Email: vishnurajn4188@gmail.com</p>
-<p>Ph No: 9037187614</p>
+<p>Phone: 9037187614</p>
 </section>
 
-<!-- QUERY FORM -->
-
 <section id="query">
+
 <h2>Ask Me a Question</h2>
 
 <form id="queryForm">
+
 <input type="text" placeholder="Your Name" required>
+
 <input type="email" placeholder="Your Email" required>
+
 <textarea placeholder="Type your query here..." required></textarea>
+
 <button type="submit">Send Query</button>
+
 </form>
 
 <p id="message"></p>
@@ -88,19 +108,30 @@
 <p>© 2026 Vishnu Portfolio</p>
 </footer>
 
-<!-- SCRIPT (must be at bottom) -->
-
 <script>
-document.getElementById("queryForm").addEventListener("submit", function(e){
-e.preventDefault();
-document.getElementById("message").innerText =
-"Your query has been submitted!";
-});
-</script>
 
-</body>
-</html>
-</footer>
+particlesJS("particles-js",{
+particles:{
+number:{value:60},
+size:{value:3},
+move:{speed:2},
+color:{value:"#00ffff"}
+}
+});
+
+ScrollReveal().reveal('section',{
+distance:'50px',
+duration:1000,
+origin:'bottom',
+interval:200
+});
+
+document.getElementById("queryForm").addEventListener("submit",function(e){
+e.preventDefault();
+document.getElementById("message").innerText="Your query has been submitted!";
+});
+
+</script>
 
 </body>
 </html>
