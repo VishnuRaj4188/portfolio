@@ -6,43 +6,34 @@
 
 <link rel="stylesheet" href="style.css">
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 </head>
 
 <body>
 
-<!-- Neural Network Background -->
-
 <canvas id="network"></canvas>
 
-<!-- Terminal Intro -->
-
 <div id="terminal">
-
-<p>> Initializing Portfolio...</p>
-<p>> Loading Developer Profile...</p>
-<p>> Welcome VishnuRaj</p>
-
+<p id="terminal-text"></p>
 </div>
 
 <header>
 
 <h1>VishnuRaj</h1>
-
 <p>Computer Engineering Student | Future Cloud Engineer</p>
 
 </header>
 
-<!-- 3D Earth -->
-
-<div id="earth-container"></div>
+<div id="earth"></div>
 
 <section>
 
-<h2>About Me</h2>
+<h2>About</h2>
 
-<p>I am a Computer Engineering student passionate about cloud computing and AI.</p>
+<p>
+Computer Engineering student passionate about Cloud Computing, AI and Data Analysis.
+</p>
 
 </section>
 
@@ -63,19 +54,17 @@
 
 <div class="project">
 
-<h3>Stock Price Prediction</h3>
+<h3>Stock Prediction</h3>
 
-<p>Using ARIMA model for predicting stock trends.</p>
+<p>ARIMA based stock market prediction project.</p>
 
 </div>
 
 </section>
 
-<!-- Chatbot -->
-
 <div id="chatbot">
 
-<div id="chat-header">AI Assistant</div>
+<div id="chat-header">Assistant</div>
 
 <div id="chat-body"></div>
 
@@ -85,88 +74,133 @@
 
 <script>
 
-/* Neural Network Background */
+/* Terminal intro */
 
-const canvas = document.getElementById("network");
-const ctx = canvas.getContext("2d");
+const text="> Booting Portfolio...\n> Loading Developer Profile...\n> Welcome VishnuRaj";
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+let i=0;
 
-const nodes = [];
+function type(){
 
-for(let i=0;i<80;i++){
+if(i<text.length){
+
+document.getElementById("terminal-text").innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(type,40);
+
+}
+
+}
+
+type();
+
+setTimeout(()=>{
+
+document.getElementById("terminal").style.display="none";
+
+},4000);
+
+
+/* Neural network */
+
+const canvas=document.getElementById("network");
+
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+let nodes=[];
+
+for(let i=0;i<70;i++){
 
 nodes.push({
+
 x:Math.random()*canvas.width,
+
 y:Math.random()*canvas.height,
-vx:Math.random()-0.5,
-vy:Math.random()-0.5
+
+vx:(Math.random()-0.5),
+
+vy:(Math.random()-0.5)
+
 });
 
 }
 
-function animate(){
+function draw(){
 
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
-for(let i=0;i<nodes.length;i++){
+nodes.forEach(n=>{
 
-let n = nodes[i];
+n.x+=n.vx;
 
-n.x += n.vx;
-n.y += n.vy;
+n.y+=n.vy;
 
 ctx.fillStyle="cyan";
+
 ctx.beginPath();
+
 ctx.arc(n.x,n.y,2,0,Math.PI*2);
+
 ctx.fill();
 
-for(let j=i;j<nodes.length;j++){
+nodes.forEach(n2=>{
 
-let dx=n.x-nodes[j].x;
-let dy=n.y-nodes[j].y;
-let dist=Math.sqrt(dx*dx+dy*dy);
+let dx=n.x-n2.x;
 
-if(dist<120){
+let dy=n.y-n2.y;
+
+let d=Math.sqrt(dx*dx+dy*dy);
+
+if(d<120){
 
 ctx.strokeStyle="rgba(0,255,255,0.2)";
+
 ctx.beginPath();
+
 ctx.moveTo(n.x,n.y);
-ctx.lineTo(nodes[j].x,nodes[j].y);
+
+ctx.lineTo(n2.x,n2.y);
+
 ctx.stroke();
 
 }
 
-}
+});
+
+});
+
+requestAnimationFrame(draw);
 
 }
 
-requestAnimationFrame(animate);
+draw();
 
-}
-
-animate();
 
 /* 3D Earth */
 
-const scene = new THREE.Scene();
+const scene=new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(75,300/300,0.1,1000);
+const camera=new THREE.PerspectiveCamera(75,300/300,0.1,1000);
 
-const renderer = new THREE.WebGLRenderer({alpha:true});
+const renderer=new THREE.WebGLRenderer({alpha:true});
 
-renderer.setSize(300,300);
+renderer.setSize(250,250);
 
-document.getElementById("earth-container").appendChild(renderer.domElement);
+document.getElementById("earth").appendChild(renderer.domElement);
 
-const geometry = new THREE.SphereGeometry(2,32,32);
+const geo=new THREE.SphereGeometry(2,32,32);
 
-const texture = new THREE.TextureLoader().load("https://threejs.org/examples/textures/earth_atmos_2048.jpg");
+const tex=new THREE.TextureLoader().load("https://threejs.org/examples/textures/earth_atmos_2048.jpg");
 
-const material = new THREE.MeshBasicMaterial({map:texture});
+const mat=new THREE.MeshBasicMaterial({map:tex});
 
-const earth = new THREE.Mesh(geometry,material);
+const earth=new THREE.Mesh(geo,mat);
 
 scene.add(earth);
 
@@ -176,7 +210,7 @@ function animateEarth(){
 
 requestAnimationFrame(animateEarth);
 
-earth.rotation.y +=0.002;
+earth.rotation.y+=0.003;
 
 renderer.render(scene,camera);
 
@@ -184,9 +218,11 @@ renderer.render(scene,camera);
 
 animateEarth();
 
+
 /* Chatbot */
 
 const input=document.getElementById("chat-input");
+
 const body=document.getElementById("chat-body");
 
 input.addEventListener("keydown",function(e){
@@ -195,11 +231,9 @@ if(e.key==="Enter"){
 
 let msg=input.value;
 
-body.innerHTML += "<div class='user'>"+msg+"</div>";
+body.innerHTML+="<div class='user'>"+msg+"</div>";
 
-let reply="I'm Vishnu's AI assistant. Thanks for visiting the portfolio!";
-
-body.innerHTML += "<div class='bot'>"+reply+"</div>";
+body.innerHTML+="<div class='bot'>Hello! I'm Vishnu's assistant.</div>";
 
 input.value="";
 
@@ -207,6 +241,10 @@ input.value="";
 
 });
 
+</script>
+
+</body>
+</html>
 </script>
 
 </body>
