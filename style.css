@@ -6,18 +6,64 @@ color:white;
 overflow-x:hidden;
 }
 
-/* neural background */
+/* floating logo background */
 
-#network{
+.logo-animation{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
+pointer-events:none;
 z-index:-1;
 }
 
-/* hero */
+.logo-animation img{
+position:absolute;
+width:45px;
+opacity:0.35;
+filter:drop-shadow(0 0 8px cyan);
+animation: floatLogo linear infinite;
+}
+
+/* different positions */
+
+.logo-animation img:nth-child(1){left:5%;animation-duration:20s;}
+.logo-animation img:nth-child(2){left:10%;animation-duration:18s;}
+.logo-animation img:nth-child(3){left:15%;animation-duration:22s;}
+.logo-animation img:nth-child(4){left:20%;animation-duration:19s;}
+.logo-animation img:nth-child(5){left:30%;animation-duration:21s;}
+.logo-animation img:nth-child(6){left:40%;animation-duration:23s;}
+.logo-animation img:nth-child(7){left:50%;animation-duration:24s;}
+.logo-animation img:nth-child(8){left:60%;animation-duration:18s;}
+.logo-animation img:nth-child(9){left:70%;animation-duration:20s;}
+.logo-animation img:nth-child(10){left:80%;animation-duration:25s;}
+.logo-animation img:nth-child(11){left:85%;animation-duration:19s;}
+.logo-animation img:nth-child(12){left:90%;animation-duration:21s;}
+.logo-animation img:nth-child(13){left:95%;animation-duration:23s;}
+.logo-animation img:nth-child(14){left:35%;animation-duration:24s;}
+.logo-animation img:nth-child(15){left:65%;animation-duration:22s;}
+.logo-animation img:nth-child(16){left:75%;animation-duration:20s;}
+
+@keyframes floatLogo{
+
+0%{
+top:110%;
+transform:rotate(0deg) scale(0.8);
+}
+
+50%{
+transform:rotate(180deg) scale(1.1);
+}
+
+100%{
+top:-10%;
+transform:rotate(360deg) scale(0.8);
+}
+
+}
+
+/* hero section */
 
 .hero{
 height:90vh;
@@ -33,26 +79,25 @@ font-size:60px;
 text-shadow:0 0 20px cyan;
 }
 
-.typing{
-margin:20px;
+.subtitle{
 font-size:20px;
+margin:20px;
 color:#00ffff;
 }
-
-/* button */
 
 .btn{
 padding:12px 25px;
 background:linear-gradient(45deg,#00ffff,#ff00cc);
 border-radius:25px;
-text-decoration:none;
 color:white;
+text-decoration:none;
 }
 
 /* sections */
 
 section{
 padding:60px 10%;
+text-align:center;
 }
 
 /* skills */
@@ -63,15 +108,14 @@ grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 gap:20px;
 }
 
-.skill-card{
+.card{
 background:rgba(255,255,255,0.1);
-padding:30px;
+padding:25px;
 border-radius:10px;
-text-align:center;
 transition:0.3s;
 }
 
-.skill-card:hover{
+.card:hover{
 transform:translateY(-10px);
 box-shadow:0 0 20px cyan;
 }
@@ -81,7 +125,7 @@ box-shadow:0 0 20px cyan;
 .project-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+gap:25px;
 }
 
 .project-card{
@@ -96,53 +140,12 @@ transform:rotateY(10deg);
 box-shadow:0 0 20px cyan;
 }
 
-/* earth */
+/* footer */
 
-#earth{
-display:flex;
-justify-content:center;
-margin-top:40px;
-}
-
-/* chatbot */
-
-#chatbot{
-position:fixed;
-bottom:20px;
-right:20px;
-width:250px;
+footer{
+text-align:center;
+padding:20px;
 background:#111;
-border-radius:10px;
-box-shadow:0 0 20px cyan;
-}
-
-#chat-header{
-background:cyan;
-color:black;
-padding:10px;
-}
-
-#chat-body{
-height:150px;
-overflow:auto;
-padding:10px;
-}
-
-.user{
-text-align:right;
-color:cyan;
-}
-
-.bot{
-color:#00ff00;
-}
-
-#chat-input{
-width:100%;
-padding:10px;
-border:none;
-background:black;
-color:white;
 }
 
 /* responsive */
@@ -150,7 +153,7 @@ color:white;
 @media(max-width:768px){
 
 .hero h1{
-font-size:35px;
+font-size:40px;
 }
 
 section{
