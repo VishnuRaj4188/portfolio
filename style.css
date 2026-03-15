@@ -1,0 +1,54 @@
+body{
+margin:0;
+font-family:Arial;
+background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+header{
+text-align:center;
+padding:50px;
+font-size:28px;
+}
+
+nav{
+text-align:center;
+margin-bottom:30px;
+}
+
+nav a{
+color:#00ffff;
+margin:15px;
+text-decoration:none;
+font-size:18px;
+}
+
+section{
+padding:40px;
+margin:20px;
+background:rgba(255,255,255,0.1);
+border-radius:15px;
+backdrop-filter: blur(10px);
+}
+
+.card{
+display:inline-block;
+background:linear-gradient(45deg,#ff00cc,#3333ff);
+padding:15px 25px;
+margin:10px;
+border-radius:10px;
+font-weight:bold;
+}
+
+.project{
+background:rgba(0,0,0,0.4);
+padding:20px;
+border-radius:10px;
+margin-top:10px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
