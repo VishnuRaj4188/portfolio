@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <title>Vishnu | Portfolio</title>
 <link rel="stylesheet" href="style.css">
 </head>
- <script>
-document.getElementById("queryForm").addEventListener("submit", function(e){
-e.preventDefault();
-document.getElementById("message").innerText =
-"Your query has been submitted!";
-});
-</script>
 
 <body>
+
 <div id="particles-js"></div>
+
 <header>
 <h1>VishnuRaj</h1>
 <p>Computer Engineering Student | Future Cloud Engineer</p>
@@ -26,10 +22,16 @@ document.getElementById("message").innerText =
 <a href="#contact">Contact</a>
 </nav>
 
+<!-- ABOUT -->
+
 <section id="about">
 <h2>About Me</h2>
 <p>I am a Computer Engineering student passionate about cloud computing, AI and data analysis.</p>
-  <section id="skills">
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
 <h2>Skills</h2>
 
 <div class="card">HTML</div>
@@ -37,12 +39,16 @@ document.getElementById("message").innerText =
 <div class="card">Python</div>
 <div class="card">Pandas</div>
 
-</section>
-
 <div class="skill">
 <p>Python</p>
-<div class="bar"><div class="progress python"></div></div>
+<div class="bar">
+<div class="progress python"></div>
 </div>
+</div>
+
+</section>
+
+<!-- PROJECTS -->
 
 <section id="projects">
 <h2>Projects</h2>
@@ -54,21 +60,23 @@ document.getElementById("message").innerText =
 
 </section>
 
+<!-- CONTACT -->
+
 <section id="contact">
 <h2>Contact</h2>
 <p>Email: vishnurajn4188@gmail.com</p>
-  <p>Ph No:9037187614</p>
+<p>Ph No: 9037187614</p>
 </section>
-  <section id="query">
+
+<!-- QUERY FORM -->
+
+<section id="query">
 <h2>Ask Me a Question</h2>
 
 <form id="queryForm">
 <input type="text" placeholder="Your Name" required>
-
 <input type="email" placeholder="Your Email" required>
-
 <textarea placeholder="Type your query here..." required></textarea>
-
 <button type="submit">Send Query</button>
 </form>
 
@@ -78,6 +86,20 @@ document.getElementById("message").innerText =
 
 <footer>
 <p>© 2026 Vishnu Portfolio</p>
+</footer>
+
+<!-- SCRIPT (must be at bottom) -->
+
+<script>
+document.getElementById("queryForm").addEventListener("submit", function(e){
+e.preventDefault();
+document.getElementById("message").innerText =
+"Your query has been submitted!";
+});
+</script>
+
+</body>
+</html>
 </footer>
 
 </body>
