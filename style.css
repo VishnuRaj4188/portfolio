@@ -1,195 +1,168 @@
 body{
+
 margin:0;
 font-family:Arial;
-background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+background:black;
 color:white;
 overflow-x:hidden;
+
 }
 
-/* Header */
+/* Neural background */
 
-header{
-text-align:center;
-padding:80px 20px;
-font-size:28px;
-position:relative;
-overflow:hidden;
-}
+#network{
 
-/* Logos behind name */
-
-.header-logos{
-position:absolute;
+position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
 z-index:-1;
-}
-
-.header-logos img{
-position:absolute;
-width:40px;
-opacity:0.25;
-animation: moveLogos 15s linear infinite;
-}
-
-.header-logos img:nth-child(1){left:10%;animation-duration:16s;}
-.header-logos img:nth-child(2){left:25%;animation-duration:20s;}
-.header-logos img:nth-child(3){left:40%;animation-duration:18s;}
-.header-logos img:nth-child(4){left:60%;animation-duration:22s;}
-.header-logos img:nth-child(5){left:75%;animation-duration:19s;}
-.header-logos img:nth-child(6){left:90%;animation-duration:17s;}
-
-@keyframes moveLogos{
-
-0%{
-top:100%;
-transform:rotate(0deg);
-}
-
-100%{
-top:-20%;
-transform:rotate(360deg);
-}
 
 }
 
-/* Navigation */
+/* Terminal intro */
 
-nav{
+#terminal{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+color:#00ff00;
+font-family:monospace;
+padding:40px;
+animation: fadeOut 4s forwards;
+animation-delay:4s;
+
+}
+
+@keyframes fadeOut{
+
+to{opacity:0;visibility:hidden;}
+
+}
+
+/* Header */
+
+header{
+
 text-align:center;
-margin-bottom:30px;
+padding:80px 20px;
+
 }
 
-nav a{
-color:#00ffff;
-margin:15px;
-text-decoration:none;
-font-size:18px;
-}
+h1{
 
-nav a:hover{
-text-shadow:0 0 10px cyan;
+font-size:50px;
+text-shadow:0 0 15px cyan;
+
 }
 
 /* Sections */
 
 section{
+
 padding:40px;
 margin:20px;
 background:rgba(255,255,255,0.1);
 border-radius:15px;
-backdrop-filter: blur(10px);
+
 }
 
-/* Skill cards */
+/* Cards */
 
 .card{
+
 display:inline-block;
-background:linear-gradient(45deg,#ff00cc,#3333ff);
 padding:20px;
 margin:15px;
-border-radius:15px;
-transition: transform 0.4s;
+border-radius:10px;
+background:linear-gradient(45deg,#ff00cc,#3333ff);
+transition:0.4s;
+
 }
 
 .card:hover{
-transform: rotateY(15deg) rotateX(10deg) scale(1.1);
-box-shadow:0 20px 40px rgba(0,255,255,0.6);
+
+transform:scale(1.1);
+box-shadow:0 0 20px cyan;
+
 }
 
-/* Project card */
+/* Projects */
 
 .project{
-background:rgba(0,0,0,0.4);
+
+background:rgba(0,0,0,0.5);
 padding:20px;
 border-radius:10px;
-margin-top:10px;
-animation: float 4s ease-in-out infinite;
+
 }
 
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
-100%{transform:translateY(0)}
+/* Earth */
+
+#earth-container{
+
+display:flex;
+justify-content:center;
+margin-top:40px;
+
 }
 
-/* Skill bar */
+/* Chatbot */
 
-.bar{
-width:100%;
-background:#222;
-border-radius:20px;
-}
+#chatbot{
 
-.progress{
-height:10px;
-border-radius:20px;
-animation: load 3s forwards;
-}
-
-.python{
-width:80%;
-background:#00ffff;
-}
-
-@keyframes load{
-from{width:0}
-}
-
-/* Particle background */
-
-#particles-js{
 position:fixed;
-width:100%;
-height:100%;
-z-index:-2;
-top:0;
-left:0;
-}
-
-/* Query form */
-
-#query{
-text-align:center;
-padding:40px;
-}
-
-#query input,
-#query textarea{
-width:60%;
-padding:12px;
-margin:10px;
-border:none;
-border-radius:10px;
+bottom:20px;
+right:20px;
+width:250px;
 background:#111;
-color:white;
-box-shadow:0 0 10px cyan;
-}
-
-#query textarea{
-height:120px;
-}
-
-#query button{
-padding:12px 25px;
-border:none;
 border-radius:10px;
-background:linear-gradient(45deg,#00ffff,#ff00cc);
-color:white;
-font-size:16px;
-cursor:pointer;
-transition:0.3s;
-}
-
-#query button:hover{
 box-shadow:0 0 20px cyan;
-transform:scale(1.05);
+
 }
 
-footer{
-text-align:center;
-padding:20px;
-margin-top:30px;
+#chat-header{
+
+background:#00ffff;
+color:black;
+padding:10px;
+font-weight:bold;
+
+}
+
+#chat-body{
+
+height:150px;
+overflow-y:auto;
+padding:10px;
+font-size:14px;
+
+}
+
+.user{
+
+text-align:right;
+color:cyan;
+
+}
+
+.bot{
+
+color:#00ff00;
+
+}
+
+#chat-input{
+
+width:100%;
+border:none;
+padding:10px;
+background:black;
+color:white;
+
 }
